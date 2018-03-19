@@ -1,3 +1,12 @@
 body {
-    background-image: url("images/bg_broads.jpg");
+    background-image: url("images/bg_station.jpg");
+}
+
+.jumbotron {
+    background: rgba(255, 255, 255, 0.8) !important;
+    padding-left: 100px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95) !important;
 }
