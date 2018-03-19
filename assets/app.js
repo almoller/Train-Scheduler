@@ -35,6 +35,11 @@ $("#add-train").on("click", function (event) {
         frequency: frequency,
         // dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+
+    $("#train-name").val("");
+    $("#destination").val("");
+    $("#first-departure-time").val("");
+    $("#frequency").val("");
 });
 
 
