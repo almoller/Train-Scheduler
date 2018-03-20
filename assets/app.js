@@ -16,14 +16,15 @@ var destination = "";
 var firstDepartureTime = "";
 var frequency = 0;
 
-
+var time = moment().format("dddd, MMMM Do YYYY, HH:mm");
+$("#time").text("as of " + time);
 
 $("#add-train").on("click", function (event) {
     event.preventDefault();
 
     trainName = $("#train-name").val().trim();
     destination = $("#destination").val().trim();
-    firstDepartureTime = $("#first-departure-time").val().trim();
+    firstDepartureTime = moment($("#first-departure-time").val().trim(), "HH:mm").format("HH:mm");
     frequency = $("#frequency").val().trim();
 
     console.log("1: "+trainName+ " 2: "+destination+ " 3: "+firstDepartureTime+ " 4: "+frequency);
@@ -35,6 +36,9 @@ $("#add-train").on("click", function (event) {
         frequency: frequency,
         // dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+
+    time = moment().format("dddd, MMMM Do YYYY, HH:mm");
+    $("#time").text("as of " + time);
 
     $("#train-name").val("");
     $("#destination").val("");
