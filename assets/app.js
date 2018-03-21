@@ -24,7 +24,7 @@ $("#add-train").on("click", function (event) {
 
     trainName = $("#train-name").val().trim();
     destination = $("#destination").val().trim();
-    firstDepartureTime = moment($("#first-departure-time").val().trim(), "HH:mm").format("HH:mm");
+    firstDepartureTime = moment($("#first-departure-time").val().trim(), "HH:mm").format("X");
     frequency = $("#frequency").val().trim();
 
     console.log("1: "+trainName+ " 2: "+destination+ " 3: "+firstDepartureTime+ " 4: "+frequency);
@@ -48,12 +48,24 @@ $("#add-train").on("click", function (event) {
 
 
 database.ref().on("child_added", function(snapshot){
-    
+
+    var firstTrain = snapshot.val().firstDepartureTime;
+    var trainFrequency = snapshot.val().frequency;
+
+    var firstTrainFormatted = moment.unix(firstTrain).format("HH:mm");
+
+    var testTime = moment().diff(moment.unix(firstTrain, "X"), "minutes");
+
     var table = $("#trainSchedule");
     
     table.append("<tr>");
     table.append("<td>" + snapshot.val().trainName);
     table.append("<td>" + snapshot.val().destination);
-    table.append("<td>" + snapshot.val().frequency);
-    // table.append("<td>" + firstDepartureTime);
+    table.append("<td>" + firstTrainFormatted);
+    table.append("<td>" + trainFrequency);
+    table.append("<td>" + testTime);
 });
+
+// function nextTrain() {
+    
+// }
