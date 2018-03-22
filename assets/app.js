@@ -34,7 +34,6 @@ $("#add-train").on("click", function (event) {
         destination: destination,
         firstDepartureTime: firstDepartureTime,
         frequency: frequency,
-        // dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
     time = moment().format("dddd, MMMM Do YYYY, HH:mm");
@@ -54,7 +53,10 @@ database.ref().on("child_added", function(snapshot){
 
     var firstTrainFormatted = moment.unix(firstTrain).format("HH:mm");
 
-    var testTime = moment().diff(moment.unix(firstTrain, "X"), "minutes");
+    var timeDifference = moment().diff(moment.unix(firstTrain, "X"), "minutes");
+    var remainder = timeDifference % trainFrequency;
+    var minutesAway = trainFrequency - remainder;
+    var nextTrain = moment().add(minutesAway, "m").format("HH:mm");
 
     var table = $("#trainSchedule");
     
@@ -63,9 +65,7 @@ database.ref().on("child_added", function(snapshot){
     table.append("<td>" + snapshot.val().destination);
     table.append("<td>" + firstTrainFormatted);
     table.append("<td>" + trainFrequency);
-    table.append("<td>" + testTime);
+    table.append("<td>" + nextTrain);
+    table.append("<td>" + minutesAway);
 });
 
-// function nextTrain() {
-    
-// }
