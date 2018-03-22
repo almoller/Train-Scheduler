@@ -27,7 +27,7 @@ body {
 }
 
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     /* For mobile phones: */
     .card {
         width: 100%;
@@ -36,7 +36,6 @@ body {
     .jumbotron {
         width: 690px;
         padding-left: 25px;
-        font-size: 24pt;
     }
 
     .display-3 {
