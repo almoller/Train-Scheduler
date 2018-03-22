@@ -17,7 +17,7 @@ var firstDepartureTime = "";
 var frequency = 0;
 
 var time = moment().format("dddd, MMMM Do YYYY, HH:mm");
-$("#time").text("as of " + time);
+$("#time").text("-- as of " + time);
 
 $("#add-train").on("click", function (event) {
     event.preventDefault();
@@ -37,7 +37,7 @@ $("#add-train").on("click", function (event) {
     });
 
     time = moment().format("dddd, MMMM Do YYYY, HH:mm");
-    $("#time").text("as of " + time);
+    $("#time").text("-- as of " + time);
 
     $("#train-name").val("");
     $("#destination").val("");

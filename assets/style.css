@@ -1,12 +1,54 @@
 body {
     background-image: url("images/bg_station.jpg");
+    /* width: 100% !important; */
 }
 
 .jumbotron {
     background: rgba(255, 255, 255, 0.8) !important;
     padding-left: 100px;
+    /* width: 100% !important; */
 }
 
 .card {
     background: rgba(255, 255, 255, 0.95) !important;
+    border: 0;
+}
+
+#tableDiv {
+    display: table;
+}
+
+#time {
+    font-size: 12pt;
+}
+
+#inputDiv {
+    width: 75%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .card {
+        width: 100%;
+    }
+
+    .jumbotron {
+        width: 690px;
+        padding-left: 25px;
+        font-size: 24pt;
+    }
+
+    .display-3 {
+        font-size: 36pt;
+        font-weight: 400;
+    }
+
+    .container {
+        margin: 0;
+    }
+
+    #inputDiv {
+        width: 100%;
+    }
 }
